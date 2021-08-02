@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"golang.org/x/net/context"
+	"google.golang.org/grpc"
 
 	"github.com/coreos/etcd/clientv3"
 	"github.com/kelseyhightower/confd/log"
@@ -105,12 +106,22 @@ type Client struct {
 }
 
 // NewEtcdClient returns an *etcdv3.Client with a connection to named machines.
-func NewEtcdClient(machines []string, cert, key, caCert string, basicAuth bool, username string, password string) (*Client, error) {
+func NewEtcdClient(machines []string,
+	cert, key, caCert string,
+	basicAuth bool,
+	username string,
+	password string,
+	headers map[string]string,
+) (*Client, error) {
 	cfg := clientv3.Config{
 		Endpoints:            machines,
 		DialTimeout:          5 * time.Second,
 		DialKeepAliveTime:    10 * time.Second,
 		DialKeepAliveTimeout: 3 * time.Second,
+		DialOptions: []grpc.DialOption{
+			grpc.WithUnaryInterceptor(unaryInterceptor(headers)),
+			grpc.WithStreamInterceptor(streamInterceptor(headers)),
+		},
 	}
 
 	if basicAuth {
