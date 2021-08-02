@@ -53,7 +53,7 @@ func New(config Config) (StoreClient, error) {
 		// The etcdClient is an http.Client and designed to be reused.
 		return etcd.NewEtcdClient(backendNodes, config.ClientCert, config.ClientKey, config.ClientCaKeys, config.ClientInsecure, config.BasicAuth, config.Username, config.Password)
 	case "etcdv3":
-		return etcdv3.NewEtcdClient(backendNodes, config.ClientCert, config.ClientKey, config.ClientCaKeys, config.BasicAuth, config.Username, config.Password)
+		return etcdv3.NewEtcdClient(backendNodes, config.ClientCert, config.ClientKey, config.ClientCaKeys, config.BasicAuth, config.Username, config.Password, config.Headers)
 	case "zookeeper":
 		return zookeeper.NewZookeeperClient(backendNodes)
 	case "rancher":
