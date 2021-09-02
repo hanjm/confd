@@ -10,7 +10,7 @@ import (
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 
-	"github.com/coreos/etcd/clientv3"
+	"github.com/hanjm/etcd/clientv3"
 	"github.com/kelseyhightower/confd/log"
 	"sync"
 )

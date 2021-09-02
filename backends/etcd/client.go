@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/coreos/etcd/client"
+	"github.com/hanjm/etcd/client"
 	"golang.org/x/net/context"
         "github.com/kelseyhightower/confd/log"
 )
