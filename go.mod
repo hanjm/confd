@@ -4,6 +4,9 @@ go 1.16
 
 require (
 	github.com/BurntSushi/toml v0.3.0
+	github.com/Masterminds/goutils v1.1.1 // indirect
+	github.com/Masterminds/semver v1.5.0 // indirect
+	github.com/Masterminds/sprig v2.22.0+incompatible
 	github.com/NYTimes/gziphandler v1.1.1 // indirect
 	github.com/SAP/go-hdb v0.105.2 // indirect
 	github.com/SermoDigital/jose v0.9.1 // indirect
@@ -48,6 +51,8 @@ require (
 	github.com/hashicorp/serf v0.8.1 // indirect
 	github.com/hashicorp/vault v0.11.6
 	github.com/hashicorp/yamux v0.0.0-20210707203944-259a57b3608c // indirect
+	github.com/huandu/xstrings v1.3.2 // indirect
+	github.com/imdario/mergo v0.3.12 // indirect
 	github.com/jefferai/jsonx v1.0.1 // indirect
 	github.com/jmespath/go-jmespath v0.0.0-20160202185014-0b12d6b521d8 // indirect
 	github.com/jonboulle/clockwork v0.2.2 // indirect
