@@ -13,6 +13,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/Masterminds/sprig"
 	util "github.com/kelseyhightower/confd/util"
 	"github.com/kelseyhightower/memkv"
 )
@@ -51,6 +52,11 @@ func newFuncMap() map[string]interface{} {
 	m["mul"] = func(a, b int) int { return a * b }
 	m["seq"] = Seq
 	m["atoi"] = strconv.Atoi
+	for k, v := range sprig.FuncMap() {
+		if _, ok := m[k]; !ok {
+			m[k] = v
+		}
+	}
 	return m
 }
 
